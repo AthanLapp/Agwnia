@@ -46,7 +46,7 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
         print("Card on Table:", cardsnames[drawncard-1])
         playc=input("Select card number to play or press enter to draw a card")
         if playc == "":
-                print("Card drawn:", cardsnames[deck[deckn]-1])
+                print("Card drawn:", cardsnames[deck[deckn-1]-1])
                 cardsplayer.append(deck[deckn])
                 deckn-=1
         else:
