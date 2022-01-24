@@ -64,7 +64,7 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                 else:
                         drawncard = cardsplayer.pop(int(playc)-1)
 
-        if drawncard == 1 or drawncard == 14 or drawncard == 27 or drawncard == 40:
+        if drawncard == 1 or drawncard == 14 or drawncard == 27 or drawncard == 40 and (playc != ""):
                 playc=int(input("press 1:Clubs,2:Diamonds,3:Hearts,4:Spades"))
                 if playc == 1:
                         drawncard = 1
@@ -326,8 +326,28 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                                 cardsplayer.append(deck[deckn])
                                 deckn-=1
         print("Card on Table:", cardsnames[drawncard-1])
+        if deckn < 9:
+                tempdeck = deck
+                deckn = 52
+                deck = random.sample(cardsnumbers,k=52)
+                for i in range(len(cardsplayer)):
+                        if cardsplayer[i-1] in deck:
+                                deck.remove(cardsplayer[i-1])
+                                deckn-=1
+                for i in range(len(cardscomputer)):
+                    if cardsplayer[i-1] in deck:
+                            deck.remove(cardscomputer[i-1])
+                            deckn-=1
+                for i in range(len(tempdeck)):
+                        if tempdeck[i-1] in deck:
+                                deck.remove(tempdeck[i-1])
+                                deckn-i
+                deck.append(tempdeck)
+                deckn+=len(tempdeck)
+        if len(cardscomputer)<3 and len(cardscomputer)>0:
+                print("CPU remaining cards =", len(cardscomputer))
 
 if len(cardsplayer)<1:
         print("Player Wins !!!")
 else:
-        print("CPU Winds ...")
+        print("CPU Wins ...")
