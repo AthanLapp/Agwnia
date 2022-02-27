@@ -330,18 +330,18 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                 tempdeck = deck
                 deckn = 52
                 deck = random.sample(cardsnumbers,k=52)
-                for i in range(len(cardsplayer)):
-                        if cardsplayer[i-1] in deck:
-                                deck.remove(cardsplayer[i-1])
+                for i in range(len(cardsplayer)-1):
+                        if cardsplayer[i] in deck:
+                                deck.remove(cardsplayer[i])
                                 deckn-=1
-                for i in range(len(cardscomputer)):
-                    if cardsplayer[i-1] in deck:
-                            deck.remove(cardscomputer[i-1])
+                for i in range(len(cardscomputer)-1):
+                    if cardscomputer[i] in deck:
+                            deck.remove(cardscomputer[i])
                             deckn-=1
-                for i in range(len(tempdeck)):
-                        if tempdeck[i-1] in deck:
-                                deck.remove(tempdeck[i-1])
-                                deckn-i
+                for i in range(len(tempdeck)-1):
+                        if tempdeck[i] in deck:
+                                deck.remove(tempdeck[i])
+                                deckn-=1
                 deck.append(tempdeck)
                 deckn+=len(tempdeck)
         if len(cardscomputer)<3 and len(cardscomputer)>0:
