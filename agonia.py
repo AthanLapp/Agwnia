@@ -46,7 +46,7 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
         print("Card on Table:", cardsnames[drawncard-1])
         playc=input("Select card number to play or press enter to draw a card")
         if playc == "":
-                print("Card drawn:", cardsnames[deck[deckn-1]-1])
+                print("Card drawn:", cardsnames[deck[deckn]-1])
                 cardsplayer.append(deck[deckn])
                 deckn-=1
         else:
@@ -327,7 +327,10 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                                 deckn-=1
         print("Card on Table:", cardsnames[drawncard-1])
         if deckn < 9:
-                tempdeck = deck
+                j=0
+                tempdeck=[]
+                for j in range(deckn-1):
+                        tempdeck.append(deck[j])
                 deckn = 52
                 deck = random.sample(cardsnumbers,k=52)
                 for i in range(len(cardsplayer)-1):
@@ -345,7 +348,9 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                 deck.append(tempdeck)
                 deckn+=len(tempdeck)
         if len(cardscomputer)<3 and len(cardscomputer)>0:
+                print("!!!!!!!!!!!!!!!!!!!!!!!")
                 print("CPU remaining cards =", len(cardscomputer))
+                print("!!!!!!!!!!!!!!!!!!!!!!!")
 
 if len(cardsplayer)<1:
         print("Player Wins !!!")
