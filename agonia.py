@@ -111,6 +111,9 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                                 plays=""
                                 plays=input("Do you want to play your 7? (y/n)")
                                 if plays=="y":
+                                        for i in range(len(cardsplayer)):
+                                                print("card", i + 1,":", cardsnames[cardsplayer[i]-1])
+                                        print("Card on Table:", cardsnames[drawncard-1])
                                         playc=input("Select card number to play or press enter to draw a card")
                                         drawncard = cardsplayer.pop(int(playc)-1)
                                         if 7 not in cardscomputer and 20 not in cardscomputer and 33 not in cardscomputer and 46 not in cardscomputer:
@@ -276,6 +279,9 @@ while (len(cardsplayer)>0 and len(cardscomputer)>0):
                         plays=""
                         plays=input("Do you want to play your 7? (y/n)")
                         if plays=="y":
+                                for i in range(len(cardsplayer)):
+                                        print("card", i + 1,":", cardsnames[cardsplayer[i]-1])
+                                print("Card on Table:", cardsnames[drawncard-1])
                                 playc=input("Select card number to play or press enter to draw a card")
                                 drawncard = cardsplayer.pop(int(playc)-1)
                                 if 7 not in cardscomputer and 20 not in cardscomputer and 33 not in cardscomputer and 46 not in cardscomputer:
